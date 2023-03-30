@@ -117,6 +117,7 @@ export const Messages: FunctionComponent = () => {
           placeholder-gray-400
           focus:placeholder-gray-600
           "
+          autoFocus
           type="text"
           value={userMessage}
           onChange={(e) => setUserMessage(e.target.value)}
