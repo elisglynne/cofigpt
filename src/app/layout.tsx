@@ -4,6 +4,7 @@ import Head from 'next/head'
 export const metadata = {
 title: "Cofi GPT",
   description: "Waw! Gret. Ma technoleg yn awful.",
+  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   
   
 };
