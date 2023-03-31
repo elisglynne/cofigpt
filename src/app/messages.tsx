@@ -2,6 +2,7 @@
 
 import { ArrowCircleUp } from "phosphor-react";
 import React, { useState, FunctionComponent } from "react";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   role: string;
@@ -101,7 +102,7 @@ export const Messages: FunctionComponent = () => {
                 : "text-left bg-neutral-700 self-start rounded-bl-none"
             }`}
           >
-            {message.content}
+            <ReactMarkdown>{message.content}</ReactMarkdown>
           </div>
         ))}
       </div>
