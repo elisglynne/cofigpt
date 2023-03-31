@@ -20,15 +20,13 @@ export async function POST(request: Request) {
           role: "system",
           content: generalPrompt,
         },
-        {
-          role: "user",
-          content: req.userInput,
-        },
+        ...req,
       ],
       max_tokens: 350,
       n: 1,
       temperature: 0.5,
     });
+
     const responseContent = response.data.choices[0].message;
 
     return NextResponse.json({ responseContent });

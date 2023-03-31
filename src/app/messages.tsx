@@ -4,7 +4,7 @@ import { ArrowCircleUp } from "phosphor-react";
 import React, { useState, FunctionComponent } from "react";
 
 interface Message {
-  sender: string;
+  role: string;
   content: string;
 }
 
@@ -16,7 +16,7 @@ export const Messages: FunctionComponent = () => {
   const prompt = "Iawn cont! Sut allai helpu ti?";
 
   const initialMessage = {
-    sender: "AI",
+    role: "assistant",
     content: prompt,
   };
 
@@ -28,19 +28,22 @@ export const Messages: FunctionComponent = () => {
   const addToConversation = (userInput: string, aiResponse: string) => {
     setConversation((prevConversation) => [
       ...prevConversation,
-      { sender: "User", content: userInput },
-      { sender: "AI", content: aiResponse },
+      { role: "user", content: userInput },
+      { role: "assistant", content: aiResponse },
     ]);
   };
 
-  const generateResponse = async (userInput: string): Promise<string> => {
+  const generateResponse = async (userMessage: string): Promise<string> => {
     setUserMessage("");
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput, prompt }),
+      body: JSON.stringify([
+        ...conversation,
+        { role: "user", content: userMessage },
+      ]),
     });
 
     const data = await response.json();
@@ -65,7 +68,7 @@ export const Messages: FunctionComponent = () => {
       setConversation((prevConversation) => {
         const newConversation = [...prevConversation];
         newConversation[newConversation.length - 1] = {
-          sender: "AI",
+          role: "assistant",
           content: aiResponse,
         };
         return newConversation;
@@ -93,7 +96,7 @@ export const Messages: FunctionComponent = () => {
               m-4
               shadow-xl
             ${
-              message.sender === "User"
+              message.role === "user"
                 ? "text-right bg-blue-400 self-end rounded-br-none"
                 : "text-left bg-neutral-700 self-start rounded-bl-none"
             }`}
