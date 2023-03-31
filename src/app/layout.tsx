@@ -1,18 +1,17 @@
-import './globals.css'
-import Head from 'next/head'
+import "./globals.css";
+import Head from "next/head";
 
 export const metadata = {
-title: "Cofi GPT",
+  title: "Cofi GPT",
   description: "Waw! Gret. Ma technoleg yn awful.",
-  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  
-  
+  viewport:
+    "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
