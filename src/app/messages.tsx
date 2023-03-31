@@ -13,7 +13,7 @@ export const Messages: FunctionComponent = () => {
   const [userMessage, setUserMessage] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
 
-  const prompt = "Iawn cont?";
+  const prompt = "Iawn cont! Sut allai helpu ti?";
 
   const initialMessage = {
     sender: "AI",
@@ -54,6 +54,9 @@ export const Messages: FunctionComponent = () => {
     if (!userMessage.trim()) return;
 
     addToConversation(userMessage, "...");
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 100);
 
     const aiResponse = await generateResponse(userMessage);
     // addToConversation(userMessage, aiResponse);
