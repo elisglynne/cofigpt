@@ -79,22 +79,23 @@ export const Messages: FunctionComponent = () => {
   };
 
   return (
-    <div className="App">
-      <div className="flex flex-col mb-14">
+    <div>
+      <div className="flex flex-col mb-16 bg-gray-100">
         {conversation.map((message, index) => (
           <div
             key={index}
             className={`
               p-4
-              rounded-xl
+              rounded-3xl
               text-white
               w-fit
               max-w-3xl
               m-4
+              shadow-xl
             ${
               message.sender === "User"
-                ? "text-right bg-blue-400 self-end"
-                : "text-left bg-neutral-700 self-start"
+                ? "text-right bg-blue-400 self-end rounded-br-none"
+                : "text-left bg-neutral-700 self-start rounded-bl-none"
             }`}
           >
             {message.content}
