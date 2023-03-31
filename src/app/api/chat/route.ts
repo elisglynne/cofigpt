@@ -22,7 +22,7 @@ export async function POST(request: Request) {
         },
         ...req,
       ],
-      max_tokens: 350,
+      max_tokens: 1500,
       n: 1,
       temperature: 0.5,
     });
