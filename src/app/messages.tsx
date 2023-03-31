@@ -80,7 +80,7 @@ export const Messages: FunctionComponent = () => {
 
   return (
     <div>
-      <div className="flex flex-col mb-16 bg-gray-100">
+      <div className="flex flex-col mb-16 ">
         {conversation.map((message, index) => (
           <div
             key={index}
