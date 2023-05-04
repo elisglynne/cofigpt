@@ -14,7 +14,7 @@ export const Messages: FunctionComponent = () => {
   const [userMessage, setUserMessage] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
 
-  const prompt = "Iawn cont! Sut allai helpu ti?";
+  const prompt = "Iawn cont! Sut allai helpu ti, cont?";
 
   const initialMessage = {
     role: "assistant",
